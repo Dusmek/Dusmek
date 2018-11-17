@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Interaction.wav-594758e6d1b09cb8f9b5b73ccc83014e.sample"
+
+[deps]
+
+source_file="res://Audio/Interaction.wav"
+dest_files=[ "res://.import/Interaction.wav-594758e6d1b09cb8f9b5b73ccc83014e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

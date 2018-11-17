@@ -1,0 +1,24 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="Area2D" type="StaticBody2D" parent="." index="0"]
+
+input_pickable = true
+collision_layer = 2
+collision_mask = 3
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Pickable" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 42.492, -6.41048, -38.4619, 19.4363, -39.9249, -37.134 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+

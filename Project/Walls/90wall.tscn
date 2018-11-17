@@ -1,0 +1,55 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://TExtures/1x1/frame0000.png" type="Texture" id=1]
+[ext_resource path="res://TExtures/1x1/frame0001.png" type="Texture" id=2]
+[ext_resource path="res://TExtures/1x1/frame0002.png" type="Texture" id=3]
+[ext_resource path="res://TExtures/1x1/frame0003.png" type="Texture" id=4]
+[ext_resource path="res://TExtures/1x1/frame0004.png" type="Texture" id=5]
+[ext_resource path="res://TExtures/1x1/frame0005.png" type="Texture" id=6]
+[ext_resource path="res://TExtures/1x1/frame0006.png" type="Texture" id=7]
+[ext_resource path="res://TExtures/1x1/frame0007.png" type="Texture" id=8]
+[ext_resource path="res://TExtures/1x1/frame0008.png" type="Texture" id=9]
+[ext_resource path="res://TExtures/1x1/frame0009.png" type="Texture" id=10]
+[ext_resource path="res://TExtures/1x1/frame0010.png" type="Texture" id=11]
+[ext_resource path="res://TExtures/1x1/frame0011.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Block1x1",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="Area2D" type="StaticBody2D" parent="." index="0"]
+
+position = Vector2( -1.88915, 1.21355 )
+scale = Vector2( 1.0129, 1.0183 )
+input_pickable = true
+collision_layer = 2
+collision_mask = 3
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Pickable" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -79.4912, -89.1041, 90.1579, -85.5763, 91.3401, 77.2934, -85.9935, 86.7011 )
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="1"]
+
+position = Vector2( 0.877804, -0.0630382 )
+frames = SubResource( 1 )
+animation = "Block1x1"
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+

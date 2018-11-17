@@ -1,0 +1,77 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://TExtures/1x2/frame0000.png" type="Texture" id=1]
+[ext_resource path="res://TExtures/1x2/frame0001.png" type="Texture" id=2]
+[ext_resource path="res://TExtures/1x2/frame0002.png" type="Texture" id=3]
+[ext_resource path="res://TExtures/1x2/frame0003.png" type="Texture" id=4]
+[ext_resource path="res://TExtures/1x2/frame0004.png" type="Texture" id=5]
+[ext_resource path="res://TExtures/1x2/frame0005.png" type="Texture" id=6]
+[ext_resource path="res://TExtures/1x2/frame0006.png" type="Texture" id=7]
+[ext_resource path="res://TExtures/1x2/frame0007.png" type="Texture" id=8]
+[ext_resource path="res://TExtures/1x2/frame0008.png" type="Texture" id=9]
+[ext_resource path="res://TExtures/1x2/frame0009.png" type="Texture" id=10]
+[ext_resource path="res://TExtures/1x2/frame0010.png" type="Texture" id=11]
+[ext_resource path="res://TExtures/1x2/frame0011.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Anim2x1",
+"speed": 12.0
+} ]
+
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends AnimatedSprite
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+func _ready():
+	frame = randf() * 11;
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
+[node name="Node2D" type="Node2D"]
+
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="Area2D" type="StaticBody2D" parent="." index="0"]
+
+position = Vector2( -1.88915, 1.21355 )
+scale = Vector2( 1.0129, 1.0183 )
+input_pickable = true
+collision_layer = 2
+collision_mask = 3
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Pickable" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="0"]
+
+position = Vector2( 1.2705, -2.89872 )
+scale = Vector2( 3, 3 )
+build_mode = 0
+polygon = PoolVector2Array( -28.2248, -60.9867, -28.761, 61.4176, 29.6843, 62.2176, 28.3438, -61.2534 )
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="1"]
+
+position = Vector2( 0.877804, -0.0630382 )
+frames = SubResource( 1 )
+animation = "Anim2x1"
+frame = 9
+playing = true
+script = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+

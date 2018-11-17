@@ -1,0 +1,231 @@
+[gd_scene load_steps=60 format=2]
+
+[ext_resource path="res://EscapeYesNo.gd" type="Script" id=1]
+[ext_resource path="res://TExtures/1x2/frame0000.png" type="Texture" id=2]
+[ext_resource path="res://TExtures/1x2/frame0001.png" type="Texture" id=3]
+[ext_resource path="res://TExtures/1x2/frame0002.png" type="Texture" id=4]
+[ext_resource path="res://TExtures/1x2/frame0003.png" type="Texture" id=5]
+[ext_resource path="res://TExtures/1x2/frame0004.png" type="Texture" id=6]
+[ext_resource path="res://TExtures/1x2/frame0005.png" type="Texture" id=7]
+[ext_resource path="res://TExtures/1x2/frame0006.png" type="Texture" id=8]
+[ext_resource path="res://TExtures/1x2/frame0007.png" type="Texture" id=9]
+[ext_resource path="res://TExtures/1x2/frame0008.png" type="Texture" id=10]
+[ext_resource path="res://TExtures/1x2/frame0009.png" type="Texture" id=11]
+[ext_resource path="res://TExtures/1x2/frame0010.png" type="Texture" id=12]
+[ext_resource path="res://TExtures/1x2/frame0011.png" type="Texture" id=13]
+[ext_resource path="res://TExtures/BUtton/frame0000.png" type="Texture" id=14]
+[ext_resource path="res://TExtures/BUtton/frame0001.png" type="Texture" id=15]
+[ext_resource path="res://TExtures/BUtton/frame0002.png" type="Texture" id=16]
+[ext_resource path="res://TExtures/BUtton/frame0003.png" type="Texture" id=17]
+[ext_resource path="res://TExtures/BUtton/frame0004.png" type="Texture" id=18]
+[ext_resource path="res://TExtures/BUtton/frame0005.png" type="Texture" id=19]
+[ext_resource path="res://TExtures/BUtton/frame0006.png" type="Texture" id=20]
+[ext_resource path="res://TExtures/BUtton/frame0007.png" type="Texture" id=21]
+[ext_resource path="res://TExtures/BUtton/frame0008.png" type="Texture" id=22]
+[ext_resource path="res://TExtures/BUtton/frame0009.png" type="Texture" id=23]
+[ext_resource path="res://TExtures/BUtton/frame0010.png" type="Texture" id=24]
+[ext_resource path="res://TExtures/BUtton/frame0011.png" type="Texture" id=25]
+[ext_resource path="res://TExtures/BUtton/frame0012.png" type="Texture" id=26]
+[ext_resource path="res://TExtures/BUtton/frame0013.png" type="Texture" id=27]
+[ext_resource path="res://TExtures/BUtton/frame0014.png" type="Texture" id=28]
+[ext_resource path="res://TExtures/BUtton/frame0015.png" type="Texture" id=29]
+[ext_resource path="res://TExtures/BUtton/frame0016.png" type="Texture" id=30]
+[ext_resource path="res://TExtures/BUtton/frame0017.png" type="Texture" id=31]
+[ext_resource path="res://TExtures/BUtton/frame0018.png" type="Texture" id=32]
+[ext_resource path="res://TExtures/BUtton/frame0019.png" type="Texture" id=33]
+[ext_resource path="res://TExtures/BUtton/frame0020.png" type="Texture" id=34]
+[ext_resource path="res://TExtures/BUtton/frame0021.png" type="Texture" id=35]
+[ext_resource path="res://TExtures/BUtton/frame0022.png" type="Texture" id=36]
+[ext_resource path="res://TExtures/BUtton/frame0023.png" type="Texture" id=37]
+[ext_resource path="res://TExtures/BUtton/frame0024.png" type="Texture" id=38]
+[ext_resource path="res://TExtures/BUtton/frame0025.png" type="Texture" id=39]
+[ext_resource path="res://TExtures/BUtton/frame0026.png" type="Texture" id=40]
+[ext_resource path="res://TExtures/BUtton/frame0027.png" type="Texture" id=41]
+[ext_resource path="res://TExtures/BUtton/frame0028.png" type="Texture" id=42]
+[ext_resource path="res://TExtures/BUtton/frame0029.png" type="Texture" id=43]
+[ext_resource path="res://TExtures/BUtton/frame0030.png" type="Texture" id=44]
+[ext_resource path="res://TExtures/BUtton/frame0031.png" type="Texture" id=45]
+[ext_resource path="res://TExtures/BUtton/frame0032.png" type="Texture" id=46]
+[ext_resource path="res://TExtures/BUtton/frame0033.png" type="Texture" id=47]
+[ext_resource path="res://TExtures/BUtton/frame0034.png" type="Texture" id=48]
+[ext_resource path="res://TExtures/BUtton/frame0035.png" type="Texture" id=49]
+[ext_resource path="res://TExtures/BUtton/frame0036.png" type="Texture" id=50]
+[ext_resource path="res://TExtures/BUtton/frame0037.png" type="Texture" id=51]
+[ext_resource path="res://TExtures/BUtton/frame0038.png" type="Texture" id=52]
+[ext_resource path="res://TExtures/BUtton/frame0039.png" type="Texture" id=53]
+[ext_resource path="res://TExtures/BUtton/frame0040.png" type="Texture" id=54]
+[ext_resource path="res://TExtures/Black.png" type="Texture" id=55]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[node name="Node2D" type="Node2D" index="0"]
+
+position = Vector2( 775, 425 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
+
+rotation = 1.5708
+z_index = 2
+frames = SubResource( 1 )
+animation = "default"
+frame = 5
+playing = true
+flip_v = true
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Sprite" index="0"]
+
+position = Vector2( 52.4795, -85.4352 )
+rotation = -1.5708
+scale = Vector2( 0.548659, 0.548659 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 9
+playing = true
+
+[node name="Yes" type="Button" parent="Sprite" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 31.0
+margin_top = -8.0
+margin_right = 191.0
+margin_bottom = 32.0
+rect_rotation = -90.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/normal = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "nah, i am just too weak"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_styles" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Sprite" index="2"]
+
+position = Vector2( 52.4801, 90.5648 )
+rotation = -1.5708
+scale = Vector2( 0.548659, 0.548659 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 29
+playing = true
+
+[node name="No" type="Button" parent="Sprite" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 33.0
+margin_top = 168.0
+margin_right = 189.0
+margin_bottom = 208.0
+rect_rotation = -90.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/normal = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Sure thing!"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_styles" ]
+
+[node name="Label" type="Label" parent="Sprite" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -84.0
+margin_top = 184.0
+margin_right = 99.0
+margin_bottom = 232.0
+rect_rotation = -90.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 3
+text = "Stay awhile and... 
+ play again"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_constants" ]
+
+[node name="Sprite2" type="Sprite" parent="." index="1"]
+
+visible = false
+scale = Vector2( 300, 200 )
+z_index = 1
+texture = ExtResource( 55 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Z Index" ]
+
+[connection signal="pressed" from="Sprite/Yes" to="." method="_on_Yes_pressed"]
+
+[connection signal="pressed" from="Sprite/No" to="." method="_on_No_pressed"]
+
+

@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Levels/Bordery1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Overlaps/OverlapFlag.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Walls/Obstacle1x1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Walls/ObstacleSmall1x2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Walls/ObstacleSmall1x1.tscn" type="PackedScene" id=5]
+
+[node name="Node2D" type="Node2D"]
+
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Bordery1" parent="." index="0" instance=ExtResource( 1 )]
+
+[node name="Flag" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 1350.3, 688.018 )
+scale = Vector2( 2, 2 )
+
+[node name="Flag2" parent="." index="2" instance=ExtResource( 2 )]
+
+position = Vector2( -100, -100 )
+scale = Vector2( 2, 2 )
+
+[node name="Obstacle" parent="." index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 686.218, 723.99 )
+
+[node name="Obstacle2" parent="." index="4" instance=ExtResource( 3 )]
+
+position = Vector2( 686.218, 542.692 )
+
+[node name="Node2D" parent="Obstacle2" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 134.519, 181.56 )
+
+[node name="Node2D2" parent="Obstacle2" index="3" instance=ExtResource( 5 )]
+
+position = Vector2( -135.886, 229.142 )
+
+[node name="Node2D3" parent="Obstacle2" index="4" instance=ExtResource( 5 )]
+
+position = Vector2( -42.8109, -133.185 )
+
+

@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://TExtures/Black.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="Area2D" type="StaticBody2D" parent="." index="0"]
+
+position = Vector2( -1.88915, 1.21355 )
+scale = Vector2( 1.0129, 1.0183 )
+input_pickable = true
+collision_layer = 2
+collision_mask = 3
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Pickable" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="0"]
+
+position = Vector2( 1.2705, -2.89872 )
+scale = Vector2( 3, 3 )
+build_mode = 0
+polygon = PoolVector2Array( -9.52919, -8.89723, -9.475, 10.2666, 10.0761, 10.0651, 10.0761, -9.11226 )
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+position = Vector2( 0.877804, -0.0630382 )
+scale = Vector2( 3.70574, 3.63986 )
+texture = ExtResource( 1 )
+
+

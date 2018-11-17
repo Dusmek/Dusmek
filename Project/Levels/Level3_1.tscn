@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Levels/Bordery2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Overlaps/OverlapWallKill.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Overlaps/OverlapFlag.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Walls/ObstacleSmall1x2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Overlaps/OverlapWallKill1x2.tscn" type="PackedScene" id=5]
+
+[node name="Node2D" type="Node2D"]
+
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Bordery2" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 904.618, 17.8294 )
+
+[node name="Node2D2" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 641.41, 101.805 )
+
+[node name="Flag" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 1381.82, 130.602 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="Flag2" parent="." index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 1387.29, 732.31 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="Label" type="Label" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 38.0
+margin_top = 40.0
+margin_right = 94.0
+margin_bottom = 54.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Label3_1"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Obstacle" parent="." index="5" instance=ExtResource( 4 )]
+
+position = Vector2( 275.365, 547.571 )
+
+[node name="Obstacle2" parent="." index="6" instance=ExtResource( 4 )]
+
+position = Vector2( 272.025, 313.731 )
+
+[node name="Obstacle3" parent="." index="7" instance=ExtResource( 4 )]
+
+position = Vector2( 1227.19, 730.229 )
+
+[node name="Obstacle4" parent="." index="8" instance=ExtResource( 4 )]
+
+position = Vector2( 1227.19, 136.245 )
+
+[node name="KillObstacle" parent="." index="9" instance=ExtResource( 5 )]
+
+position = Vector2( 519.488, 151.154 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="KillObstacle2" parent="." index="10" instance=ExtResource( 5 )]
+
+position = Vector2( 524.903, 711.91 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="KillObstacle3" parent="." index="11" instance=ExtResource( 5 )]
+
+position = Vector2( 875.178, 574.433 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="KillObstacle4" parent="." index="12" instance=ExtResource( 5 )]
+
+position = Vector2( 875.178, 298.272 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Node2D" parent="." index="13" instance=ExtResource( 2 )]
+
+position = Vector2( 996.422, 521.694 )
+
+

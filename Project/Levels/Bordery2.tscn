@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://TExtures/LevelBackground2.png" type="Texture" id=1]
+[ext_resource path="res://Walls/border.tscn" type="PackedScene" id=2]
+[ext_resource path="res://TExtures/Border2.png" type="Texture" id=3]
+
+[node name="Bordery2" type="Node2D"]
+
+position = Vector2( 922.934, 17.8294 )
+scale = Vector2( 1, 0.25 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( -143.075, 1652.71 )
+scale = Vector2( 0.836277, 3.33807 )
+texture = ExtResource( 1 )
+
+[node name="TopBorder" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( -167.701, -88.6071 )
+scale = Vector2( 27.0242, 5.77934 )
+
+[node name="MiddleBorder" parent="." index="2" instance=ExtResource( 2 )]
+
+position = Vector2( -209.941, 1651.19 )
+scale = Vector2( 28.094, 2.35455 )
+
+[node name="BottomBorder" parent="." index="3" instance=ExtResource( 2 )]
+
+position = Vector2( -202.595, 3374.08 )
+scale = Vector2( 28.4796, 5.03507 )
+
+[node name="LeftBorder" parent="." index="4" instance=ExtResource( 2 )]
+
+position = Vector2( -916.76, 1924.55 )
+scale = Vector2( 0.843688, 62.736 )
+
+[node name="RightBorder" parent="." index="5" instance=ExtResource( 2 )]
+
+position = Vector2( 619.002, 1664.89 )
+scale = Vector2( 1, 60.1479 )
+
+[node name="Border2" type="Sprite" parent="." index="6"]
+
+position = Vector2( -145.055, 1659 )
+scale = Vector2( 1, 4 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+
