@@ -2,13 +2,16 @@ extends KinematicBody2D
 
 # class member variables go here, for example:
 	   
-	
-	
-var Dead = false;
-var DeadTimer = 0;
-
+#movement
+var speedMax = 400;
+var speed = 0;
+var Direction;
 var InputTime = 0;
-	
+var InputMaxTime = 0.0001;
+var AccelerationTime = 0;
+var SlowingTime = 0;
+var velocity = Vector2(0,0);
+  
 var MirrorCharacter = false;    
 var currentDirection = Vector2(0,0);
 
@@ -21,13 +24,8 @@ func _ready():
 	pass
 
 func _process(delta): 
-	
-	if Dead: 
-		if DeadTimer > 0:
-			DeadTimer -= delta; 
-		else:
-			get_parent()._reloadLevel();
-			
+	  
+	_Movement(delta);
 	
 	_Overlaping(); 
 	
@@ -43,11 +41,9 @@ func _process(delta):
 			sp.set_rotation((l*angle+(1-l)*sp.get_rotation()))
 		LastPos = get_position();
 	
-	if InputTime > 0:
-		InputTime -= delta;
 		
-	if( !Dead):
-		if( InputTime <= 0 ):
+	if(!get_parent().Dead):
+		if( abs(velocity.length()) <= 0 ):
 			if( MirrorCharacter ):
 				if( find_node("Sprite").animation != "IdleMirror"):
 					find_node("Sprite").animation = "IdleMirror";
@@ -58,21 +54,22 @@ func _process(delta):
 
 func _addInput(Direction, Mirror = false):
 	
-	if( !Dead):
-		InputTime = 0.2;
-		var speed = 40000;  
-		if( Mirror && MirrorCharacter):
-			currentDirection = Direction*get_parent().MirrorMovement*get_parent().StopMovement;
-			move_and_slide(Direction*speed*get_parent().MirrorMovement*get_parent().StopMovement);  
+	if( !get_parent().Dead):
+		InputTime = InputMaxTime;
+		speed = speedMax * AccelerationTime;  
+		var dir = Vector2(0,0);
+		if( Mirror && MirrorCharacter): 
+			dir =((velocity*get_parent().MirrorMovement).normalized()+Direction.normalized()).normalized();
+			velocity = (dir*speed*get_parent().StopMovement*get_parent().MirrorMovement);  
 		else:  
 			if MirrorCharacter:
-				currentDirection = Direction*get_parent().StopMovement;
-				move_and_slide(Direction*speed*get_parent().StopMovement); 
+				dir =(velocity.normalized()+Direction.normalized()).normalized();
+				velocity = (dir*speed*get_parent().StopMovement); 
 			else: 	
-				currentDirection = Direction;
-				move_and_slide(Direction*speed); 
+				dir =(velocity.normalized()+Direction.normalized()).normalized();
+				velocity = (dir*speed); 
 		 
-	if( !Dead):
+	if( !get_parent().Dead):
 		if( MirrorCharacter ):
 			if( find_node("Sprite").animation != "Mirror"):
 				find_node("Sprite").animation = "Mirror";
@@ -82,8 +79,7 @@ func _addInput(Direction, Mirror = false):
 	  
 	pass 
 	
-func _Generate(Mirror):
-	Dead = false;
+func _Generate(Mirror): 
 	MirrorCharacter = Mirror;
 	if MirrorCharacter: 
 		find_node("Sprite").animation = "Mirror";
@@ -106,20 +102,34 @@ func _Overlaping():
 				if( !Reverted ): 
 					Reverted = true; 
 					get_parent().MirrorMovement = -get_parent().MirrorMovement; 
-			"kill":
-				if( MirrorCharacter ):
-					if( find_node("Sprite").animation != "DeathMirror"):
-						find_node("Sprite").animation = "DeathMirror";
-						Dead = true;
-						DeadTimer = 4;
-				else:
-					if( find_node("Sprite").animation != "DeathNormal"):
-						find_node("Sprite").animation = "DeathNormal";
-						Dead = true;
-						DeadTimer = 4; 
-			 
+			"kill":  
+				get_parent().SetDead(); 
+		 
 	if( !noFlag && get_parent() != null):
 		get_parent().SetFlag(MirrorCharacter, false); 
 	if( !Revert ):
 		Reverted = false;
+	pass
+	
+	
+	
+func _Movement(var delta):
+	#timers
+	if( InputTime >= InputMaxTime ):
+		if( AccelerationTime < 1 ):
+			AccelerationTime += delta * 5;
+		else: 
+			AccelerationTime = 1;
+	else: 
+		AccelerationTime = 0;
+	
+	if InputTime > 0:
+		InputTime -= delta;
+	else:  
+		if( abs(velocity.length()) > 0):
+			velocity /= Vector2(3,3);
+			if abs(velocity.length()) > 25:
+				velocity = Vector2(0,0);
+			  
+	move_and_slide(velocity);
 	pass

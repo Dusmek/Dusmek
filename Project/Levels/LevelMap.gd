@@ -15,7 +15,7 @@ func _process(delta):
 	pass
 
 func CanPlay(id): 
-	return get_parent().ActualLevelCompleted >= id;
+	return true;#get_parent().ActualLevelCompleted >= id;
 	pass
 
 func _on_Level1_1_pressed():

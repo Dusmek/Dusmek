@@ -29,6 +29,10 @@ var MirrorMovement = -1.0;
 var flagMirror = false;
 var flagBase = false;
 var StopMovement = 1;
+
+var Dead = false; 
+var DeadTimer = 0; 
+ 
  
 var DisablePlayerInput = false;
 
@@ -105,6 +109,7 @@ func _spawnPlayers():
 	 
 	MirrorMovement = -1.0;
 	
+	Dead = false;
 	PlayerInst = PlayerScene.instance()
 	AntiPlayerInst = PlayerScene.instance()
 	add_child(PlayerInst)
@@ -190,6 +195,12 @@ func _process(delta):
 	#Called every frame. Delta is time since last frame.
 	#Update game logic here.
 	
+	if(Dead):
+	 	if DeadTimer > 0:
+				DeadTimer -= delta; 
+			else:
+				_reloadLevel();
+	
 	if CanNextLevel:
 		if NextLevelTimer > 0: 
 			NextLevelTimer -= delta; 
@@ -238,4 +249,12 @@ func SetFlag(Index, State):
 		if( !CanNextLevel ): 
 			CanNextLevel = true;
 			NextLevelTimer = 0;
+	pass
+	
+func SetDead():  
+	if(!Dead):
+		AntiPlayerInst.find_node("Sprite").animation = "DeathMirror"; 
+		PlayerInst.find_node("Sprite").animation = "DeathNormal"; 
+		Dead = true;
+		DeadTimer = 4;   
 	pass

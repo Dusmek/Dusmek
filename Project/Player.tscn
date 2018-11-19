@@ -226,7 +226,7 @@ _sections_unfolded = [ "Resource" ]
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 9.80744
+radius = 32.0
 
 [node name="RigidBody" type="KinematicBody2D"]
 
@@ -239,23 +239,21 @@ _sections_unfolded = [ "Applied Forces", "Collision", "Linear", "Material", "Pic
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 
-position = Vector2( -21.4267, 3.67881 )
 frames = SubResource( 1 )
 animation = "IdleMirror"
-frame = 12
+frame = 36
 playing = true
+offset = Vector2( -40, 0 )
 _sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Pickable", "Transform" ]
 
 [node name="Collision" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 13.9932, 0.743794 )
-scale = Vector2( 3.10223, 3.16552 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Area2D" type="Area2D" parent="." index="2"]
 
-position = Vector2( 2.20064, -3.52102 )
+position = Vector2( -0.716965, 0.716972 )
 input_pickable = true
 space_override = 1
 gravity_vec = Vector2( 0, 1 )
@@ -266,12 +264,11 @@ monitorable = false
 collision_mask = 8
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Audio Bus", "Collision", "Pickable" ]
+_sections_unfolded = [ "Audio Bus", "Collision", "Pickable", "Transform" ]
 
 [node name="Collision2" type="CollisionShape2D" parent="Area2D" index="0"]
 
-position = Vector2( 11.7926, 4.99693 )
-scale = Vector2( 3.10223, 3.16552 )
 shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 
