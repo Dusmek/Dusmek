@@ -222,10 +222,14 @@ func _process(delta):
 			_showMap()
 			
 	if (MapInst == null && !DisablePlayerInput):
+		
 		if (Input.is_mouse_button_pressed(BUTTON_LEFT)):
 			var v = get_viewport().get_mouse_position()-PlayerInst.get_position()
-			if (v.length_squared() > 16):
-				PlayerInst._addInput(v.normalized()*delta)
+			if (v.length_squared() > 1000):
+				PlayerInst._addInput(v.normalized())
+				AntiPlayerInst._addInput(Vector2(-v.normalized().x, v.normalized().y));
+
+			
 		if Input.is_key_pressed(87): #w
 			PlayerInst._addInput(Vector2(0,-1)*delta)
 			AntiPlayerInst._addInput(Vector2(0,-1)*delta, true)

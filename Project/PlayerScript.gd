@@ -49,7 +49,7 @@ func _process(delta):
 	
 		
 	if(!get_parent().Dead):
-		if( abs(velocity.length()) <= 0 ):
+		if( abs(velocity.length_squared()) <= 1000 ):
 			if( MirrorCharacter ):
 				if( find_node("Sprite").animation != "IdleMirror"):
 					find_node("Sprite").animation = "IdleMirror";
@@ -60,20 +60,16 @@ func _process(delta):
 
 func _addInput(Direction, Mirror = false):
 	
-	if( !get_parent().Dead):
+	if( !get_parent().Dead): 
 		InputTime = InputMaxTime;
 		speed = speedMax * AccelerationTime;  
-		var dir = Vector2(0,0);
-		if( Mirror && MirrorCharacter): 
-			dir =((velocity*get_parent().MirrorMovement).normalized()+Direction.normalized()).normalized();
-			velocity = (dir*speed*get_parent().StopMovement*get_parent().MirrorMovement);  
-		else:  
-			if MirrorCharacter:
-				dir =(velocity.normalized()+Direction.normalized()).normalized();
-				velocity = (dir*speed*get_parent().StopMovement); 
-			else: 	
-				dir =(velocity.normalized()+Direction.normalized()).normalized();
-				velocity = (dir*speed); 
+		var dir = Vector2(0,0); 
+		if MirrorCharacter:
+			dir =(-velocity.normalized()+Direction.normalized()).normalized();
+			velocity = (dir*speed*get_parent().MirrorMovement*get_parent().StopMovement); 
+		else: 	
+			dir =(velocity.normalized()+Direction.normalized()).normalized();
+			velocity = (dir*speed); 
 		 
 	if( !get_parent().Dead):
 		if( MirrorCharacter ):
@@ -139,3 +135,4 @@ func _Movement(var delta):
 			  
 	move_and_slide(velocity);
 	pass
+	 
