@@ -4,7 +4,7 @@
 [ext_resource path="res://Walls/border.tscn" type="PackedScene" id=2]
 [ext_resource path="res://TExtures/Border.png" type="Texture" id=3]
 
-[node name="Bordery1" type="Node2D"]
+[node name="Bordery1" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Z Index" ]
 

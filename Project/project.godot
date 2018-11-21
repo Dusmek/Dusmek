@@ -16,13 +16,11 @@ config/icon="res://TExtures/ikona.png"
 
 [display]
 
-window/size/width=1550
-window/size/height=855
-window/size/borderless=true
-window/size/fullscreen=true
-window/size/test_width=1550
-window/size/test_height=855
-window/stretch/aspect="keep"
+window/size/width=1920
+window/size/height=1080
+window/size/resizable=false
+window/size/test_width=1920
+window/size/test_height=1080
 window/stretch/shrink="1"
 
 [input]

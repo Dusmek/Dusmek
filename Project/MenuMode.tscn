@@ -124,7 +124,7 @@ _sections_unfolded = [ "Focus", "Hint", "Mouse", "Rect", "Size Flags", "Theme", 
 position = Vector2( 143.498, 46.93 )
 frames = SubResource( 2 )
 animation = "Button"
-frame = 36
+frame = 26
 playing = true
 script = ExtResource( 44 )
 _sections_unfolded = [ "Transform" ]
@@ -191,7 +191,7 @@ _sections_unfolded = [ "Rect" ]
 position = Vector2( 140.409, 37.3087 )
 frames = SubResource( 2 )
 animation = "Button"
-frame = 35
+frame = 25
 playing = true
 script = ExtResource( 44 )
 
@@ -257,7 +257,7 @@ _sections_unfolded = [ "Rect" ]
 position = Vector2( 136.001, 48.4572 )
 frames = SubResource( 2 )
 animation = "Button"
-frame = 34
+frame = 24
 playing = true
 script = ExtResource( 44 )
 

@@ -146,8 +146,9 @@ func _loadLevel(id):
 		remove_child(MapInst)
 		MapInst = null
 	 
-	if( currLevelId == 0 || currLevelId == 1 || currLevelId == 2 ):
-		DialogWidgetInstance.TurnOn(Dialogs[currLevelId]); 
+	#WYLACZAM NA RAZIE DIALOGI 
+	#if( currLevelId == 0 || currLevelId == 1 || currLevelId == 2 ):
+	#	DialogWidgetInstance.TurnOn(Dialogs[currLevelId]); 
 	
 	FadeScreenInstance.CallFade();
 	
@@ -221,6 +222,10 @@ func _process(delta):
 			_showMap()
 			
 	if (MapInst == null && !DisablePlayerInput):
+		if (Input.is_mouse_button_pressed(BUTTON_LEFT)):
+			var v = get_viewport().get_mouse_position()-PlayerInst.get_position()
+			if (v.length_squared() > 16):
+				PlayerInst._addInput(v.normalized()*delta)
 		if Input.is_key_pressed(87): #w
 			PlayerInst._addInput(Vector2(0,-1)*delta)
 			AntiPlayerInst._addInput(Vector2(0,-1)*delta, true)

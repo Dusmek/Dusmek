@@ -32,13 +32,19 @@ func _process(delta):
 	if (LastPos!=get_position()):
 		var angle = get_position().angle_to_point(LastPos)
 		var sp = find_node("Sprite")
+		var rot = sp.get_rotation()
 		var l = 0.45
-		if (angle - sp.get_rotation() > PI):
-			sp.set_rotation((l*(angle - 2*PI)+(1-l)*sp.get_rotation()))
-		elif (angle - sp.get_rotation() < -PI):
-			sp.set_rotation(l*angle+(1-l)*(sp.get_rotation()-2*PI))
-		else:
-			sp.set_rotation((l*angle+(1-l)*sp.get_rotation()))
+		if (angle - rot > PI):
+			if (angle > 0):
+				angle -= 2*PI;
+			else:
+				rot += 2*PI
+		if (rot - angle > PI):
+			if (rot > 0):
+				rot -= 2*PI
+			else:
+				angle += 2*PI
+		sp.set_rotation(l*angle+(1-l)*rot);
 		LastPos = get_position();
 	
 		
