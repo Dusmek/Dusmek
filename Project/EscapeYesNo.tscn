@@ -87,8 +87,9 @@ content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
+_sections_unfolded = [ "Content Margin", "Resource" ]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 position = Vector2( 775, 425 )
 script = ExtResource( 1 )
@@ -100,7 +101,7 @@ rotation = 1.5708
 z_index = 2
 frames = SubResource( 1 )
 animation = "default"
-frame = 5
+frame = 9
 playing = true
 flip_v = true
 _sections_unfolded = [ "Transform", "Z Index" ]
@@ -112,7 +113,7 @@ rotation = -1.5708
 scale = Vector2( 0.548659, 0.548659 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 9
+frame = 4
 playing = true
 
 [node name="Yes" type="Button" parent="Sprite" index="1"]
@@ -121,10 +122,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 31.0
+margin_left = 27.0
 margin_top = -8.0
-margin_right = 191.0
-margin_bottom = 32.0
+margin_right = 187.0
+margin_bottom = 43.0
 rect_rotation = -90.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -134,15 +135,18 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_styles/normal = SubResource( 3 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
 text = "nah, i am just too weak"
-flat = false
+flat = true
 align = 1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_styles" ]
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Sprite" index="2"]
 
@@ -151,7 +155,7 @@ rotation = -1.5708
 scale = Vector2( 0.548659, 0.548659 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 29
+frame = 24
 playing = true
 
 [node name="No" type="Button" parent="Sprite" index="3"]
@@ -160,10 +164,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 33.0
+margin_left = 27.0
 margin_top = 168.0
-margin_right = 189.0
-margin_bottom = 208.0
+margin_right = 185.0
+margin_bottom = 218.0
 rect_rotation = -90.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -173,15 +177,18 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_styles/normal = SubResource( 4 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.195313, 1, 0, 1 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
 text = "Sure thing!"
-flat = false
+flat = true
 align = 1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_styles" ]
+_sections_unfolded = [ "Focus", "Hint", "Mouse", "Rect", "Size Flags", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 [node name="Label" type="Label" parent="Sprite" index="4"]
 

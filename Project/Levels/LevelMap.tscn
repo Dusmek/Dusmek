@@ -108,7 +108,7 @@ grow = 1.0
 thickness = 1
 vertical = false
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -130,7 +130,7 @@ _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 position = Vector2( 397.834, 395.484 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 1
+frame = 8
 playing = true
 
 [node name="F2" type="AnimatedSprite" parent="Node2D" index="2"]
@@ -138,6 +138,7 @@ playing = true
 position = Vector2( 790.745, 556.749 )
 frames = SubResource( 1 )
 animation = "default"
+frame = 7
 playing = true
 flip_h = true
 
@@ -146,7 +147,7 @@ flip_h = true
 position = Vector2( 1180.84, 388.396 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 15
+frame = 6
 playing = true
 
 [node name="Sprite" type="Sprite" parent="Node2D" index="4"]
@@ -156,6 +157,7 @@ texture = ExtResource( 19 )
 
 [node name="Level1_1" type="Button" parent="." index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -182,11 +184,11 @@ _sections_unfolded = [ "custom_fonts", "custom_styles" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Level1_1" index="0"]
 
-modulate = Color( 1, 0, 0.773438, 1 )
+self_modulate = Color( 0.125, 1, 0, 1 )
 position = Vector2( 45.3533, 50.9345 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 11
+frame = 18
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
@@ -197,6 +199,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Level1_2" type="Button" parent="." index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -223,21 +226,22 @@ _sections_unfolded = [ "custom_fonts", "custom_styles" ]
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Level1_2" index="0"]
 
-modulate = Color( 0.125, 1, 0, 1 )
+self_modulate = Color( 1, 0, 0.773438, 1 )
 position = Vector2( 41.2298, 43.5764 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 11
+frame = 18
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Sprite2" type="Sprite" parent="Level1_2/AnimatedSprite2" index="0"]
 
 texture = ExtResource( 45 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Level1_3" type="Button" parent="." index="3"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -267,7 +271,7 @@ modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 41.6378, 46.4892 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 10
+frame = 17
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
@@ -278,6 +282,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Level1_4" type="Button" parent="." index="4"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -304,10 +309,10 @@ align = 1
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Level1_4" index="0"]
 
 modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 44.7602, 48.6886 )
+position = Vector2( 44.7602, 46.838 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 9
+frame = 16
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
@@ -318,6 +323,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Level1_5" type="Button" parent="." index="5"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -347,7 +353,7 @@ modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 40.3442, 52.2637 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 9
+frame = 16
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
@@ -358,6 +364,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Level2_1" type="Button" parent="." index="6"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -387,7 +394,7 @@ modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 44.98, 47.6618 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 9
+frame = 16
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
@@ -398,6 +405,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Level2_2" type="Button" parent="." index="7"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -427,7 +435,7 @@ modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 43.2621, 36.7382 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 8
+frame = 15
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
@@ -438,6 +446,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Level2_3" type="Button" parent="." index="8"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -467,7 +476,7 @@ modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 44.7901, 45.3694 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 7
+frame = 14
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
@@ -478,6 +487,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Level2_4" type="Button" parent="." index="9"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -507,7 +517,7 @@ modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 40.6025, 45.9431 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 6
+frame = 13
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
@@ -518,6 +528,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Level2_5" type="Button" parent="." index="10"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -547,7 +558,7 @@ modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 37.0787, 43.2465 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 6
+frame = 13
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
@@ -558,6 +569,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Level3_1" type="Button" parent="." index="11"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -587,7 +599,7 @@ modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 46.478, 44.0668 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 6
+frame = 13
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
@@ -598,6 +610,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Level3_2" type="Button" parent="." index="12"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -627,7 +640,7 @@ modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 40.2519, 43.0668 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 6
+frame = 13
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
@@ -638,6 +651,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Level3_3" type="Button" parent="." index="13"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -667,7 +681,7 @@ modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 42.8264, 45.1133 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 5
+frame = 12
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
@@ -707,7 +721,7 @@ modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 44.5869, 37.0668 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 4
+frame = 11
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
@@ -718,6 +732,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Level3_5" type="Button" parent="." index="15"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -748,7 +763,7 @@ modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 39.5354, 35.2583 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 4
+frame = 11
 playing = true
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 

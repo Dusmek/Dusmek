@@ -4,12 +4,18 @@ extends Node2D
 # var a = 2
 # var b = "textvar"
 var Buttons;
+var sizeOn = Vector2(1.5,1.5);
+var sizeOff = Vector2(1.2,1.2);
+
 
 func _ready():   
+	Buttons = get_children();
+	for i in range(1, Buttons.size()):  
+		Buttons[i].get_child(0).modulate = Color(0,0,0,255); 
+		Buttons[i].get_child(0).scale = sizeOff;
 	pass
 
-func _process(delta): 
-	Buttons = get_children();
+func _process(delta):  
 	for i in range(1, Buttons.size()):  
 		Buttons[i].visible = CanPlay(i-1);  
 	pass
@@ -124,10 +130,10 @@ func _on_Level1_4_pressed():
 
 
 func _on_Level1_1_mouse_entered():
-	find_node("Level1_1").get_child(0).scale = Vector2(1.2,1.2);
+	find_node("Level1_1").get_child(0).scale = sizeOn;
 	pass # replace with function body
 
 
 func _on_Level1_1_mouse_exited(): 
-	find_node("Level1_1").get_child(0).scale = Vector2(1,1);
+	find_node("Level1_1").get_child(0).scale = sizeOff;
 	pass # replace with function body

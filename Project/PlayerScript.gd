@@ -3,7 +3,7 @@ extends KinematicBody2D
 # class member variables go here, for example:
 	   
 #movement
-var speedMax = 400;
+var speedMax = 40000;
 var speed = 0;
 var Direction;
 var InputTime = 0;
@@ -11,7 +11,9 @@ var InputMaxTime = 0.0001;
 var AccelerationTime = 0;
 var SlowingTime = 0;
 var velocity = Vector2(0,0);
-  
+var direction = Vector2(0,0); 
+
+
 var MirrorCharacter = false;    
 var currentDirection = Vector2(0,0);
 
@@ -49,7 +51,7 @@ func _process(delta):
 	
 		
 	if(!get_parent().Dead):
-		if( abs(velocity.length_squared()) <= 1000 ):
+		if( velocity.length_squared() <= 0 ):
 			if( MirrorCharacter ):
 				if( find_node("Sprite").animation != "IdleMirror"):
 					find_node("Sprite").animation = "IdleMirror";
@@ -62,23 +64,20 @@ func _addInput(Direction, Mirror = false):
 	
 	if( !get_parent().Dead): 
 		InputTime = InputMaxTime;
-		speed = speedMax * AccelerationTime;  
-		var dir = Vector2(0,0); 
+		speed = speedMax * AccelerationTime;    
 		if MirrorCharacter:
-			dir =(-velocity.normalized()+Direction.normalized()).normalized();
-			velocity = (dir*speed*get_parent().MirrorMovement*get_parent().StopMovement); 
-		else: 	
-			dir =(velocity.normalized()+Direction.normalized()).normalized();
-			velocity = (dir*speed); 
-		 
-	if( !get_parent().Dead):
+			direction = (Direction+direction)/2;
+			velocity = (direction*speed*get_parent().StopMovement); 
+		else:
+			direction = (Direction+direction)/2;
+			velocity = (direction*speed); 
+		  
 		if( MirrorCharacter ):
 			if( find_node("Sprite").animation != "Mirror"):
 				find_node("Sprite").animation = "Mirror";
 		else:
 			if( find_node("Sprite").animation != "Normal"):
 				find_node("Sprite").animation = "Normal";
-	  
 	pass 
 	
 func _Generate(Mirror): 
@@ -119,20 +118,36 @@ func _Movement(var delta):
 	#timers
 	if( InputTime >= InputMaxTime ):
 		if( AccelerationTime < 1 ):
-			AccelerationTime += delta * 5;
+			AccelerationTime += delta * 4;
 		else: 
 			AccelerationTime = 1;
 	else: 
 		AccelerationTime = 0;
 	
+	#SlowingDown
 	if InputTime > 0:
 		InputTime -= delta;
 	else:  
-		if( abs(velocity.length()) > 0):
-			velocity /= Vector2(3,3);
-			if abs(velocity.length()) > 25:
+		if( velocity.length_squared() > 0):
+			var velocityReduction = (velocity.normalized()*(abs(velocity.length())))/(speedMax*delta/4);
+			if( velocity.length_squared() < 100):
 				velocity = Vector2(0,0);
-			  
-	move_and_slide(velocity);
+			else:
+				velocity -= velocityReduction;
+				
+	#AnimationFPS base on speed 			
+	if(velocity.length_squared() > 0):
+		var animationSpeed = (velocity.length_squared()/(speedMax/20))*12;
+		if( animationSpeed < 4 ):
+			animationSpeed = 4;
+		if( animationSpeed > 12 ):
+			animationSpeed = 12; 
+		if( MirrorCharacter ):		
+			find_node("Sprite").get_sprite_frames().set_animation_speed("Mirror", animationSpeed);
+		else:
+			find_node("Sprite").get_sprite_frames().set_animation_speed("Normal", animationSpeed);
+ 
+	if( !get_parent().Dead ):
+		 move_and_slide(velocity); 
 	pass
 	 

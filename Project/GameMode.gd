@@ -29,7 +29,7 @@ var MirrorMovement = -1.0;
 var flagMirror = false;
 var flagBase = false;
 var StopMovement = 1;
-
+var MaxSpeedDistance = 24000;
 var Dead = false; 
 var DeadTimer = 0; 
  
@@ -224,12 +224,19 @@ func _process(delta):
 	if (MapInst == null && !DisablePlayerInput):
 		
 		if (Input.is_mouse_button_pressed(BUTTON_LEFT)):
+			var inputVector = Vector2(0,0);
 			var v = get_viewport().get_mouse_position()-PlayerInst.get_position()
-			if (v.length_squared() > 1000):
-				PlayerInst._addInput(v.normalized())
-				AntiPlayerInst._addInput(Vector2(-v.normalized().x, v.normalized().y));
-
-			
+			if (v.length_squared() > 1000): 	 
+				var output = (v.length_squared())/ (MaxSpeedDistance);
+				if( output > 1 ):
+					output = 1;  
+				elif(v.length_squared() > MaxSpeedDistance/2 && output < 0.5 ):
+					output = 0.5;
+				inputVector = v.normalized() * output * delta; 
+				PlayerInst._addInput(inputVector);
+				AntiPlayerInst._addInput(Vector2(inputVector.x, inputVector.y*MirrorMovement));
+			 
+				
 		if Input.is_key_pressed(87): #w
 			PlayerInst._addInput(Vector2(0,-1)*delta)
 			AntiPlayerInst._addInput(Vector2(0,-1)*delta, true)

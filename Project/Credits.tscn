@@ -150,7 +150,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-flat = false
+flat = true
 align = 1
 _sections_unfolded = [ "Visibility", "custom_styles" ]
 
@@ -160,7 +160,7 @@ position = Vector2( 195, 56.5 )
 scale = Vector2( 1.35, 1.35833 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 32
+frame = 3
 playing = true
 
 [node name="Label" type="Label" parent="Back/AnimatedSprite" index="0"]
@@ -197,7 +197,7 @@ position = Vector2( 566.795, 506.074 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 1
+frame = 4
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="." index="3"]
@@ -206,6 +206,7 @@ position = Vector2( 718.751, 233.925 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 3 )
 animation = "New Anim 1"
+frame = 3
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="." index="4"]
@@ -214,7 +215,7 @@ position = Vector2( 995.569, 424.77 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 3 )
 animation = "New Anim"
-frame = 2
+frame = 5
 playing = true
 
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
