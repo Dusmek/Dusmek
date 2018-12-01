@@ -13,6 +13,8 @@ var SlowingTime = 0;
 var velocity = Vector2(0,0);
 var direction = Vector2(0,0); 
 
+var BodyPartPath = load("res://PlayerBodyPart.tscn");
+var BodyParts = [];
 
 var MirrorCharacter = false;    
 var currentDirection = Vector2(0,0);
@@ -21,7 +23,11 @@ var Reverted = false;
 
 var LastPos
 
-func _ready(): 
+func _ready():
+	#for i in 20:
+		#var part = BodyPartPath.instance() 
+		#add_child(part) 
+
 	LastPos = get_position()
 	pass
 
@@ -129,7 +135,7 @@ func _Movement(var delta):
 		InputTime -= delta;
 	else:  
 		if( velocity.length_squared() > 0):
-			var velocityReduction = (velocity.normalized()*(abs(velocity.length())))/(speedMax*delta/4);
+			var velocityReduction = (velocity.normalized()*delta*(abs(velocity.length())))*5;
 			if( velocity.length_squared() < 100):
 				velocity = Vector2(0,0);
 			else:
