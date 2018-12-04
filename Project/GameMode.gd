@@ -25,6 +25,9 @@ var Level
 var MapClass = load("res://Levels/LevelMap.tscn")
 var MapInst
 
+var DropScene = load("res://Drop.tscn")
+var Drops = []
+
 var MirrorMovement = -1.0;
 var flagMirror = false;
 var flagBase = false;
@@ -118,8 +121,13 @@ func _spawnPlayers():
 	add_child(AntiPlayerInst)
 	AntiPlayerInst._Generate(true);
 	AntiPlayerInst.set_global_position(MirrorStart)
-	 
-	pass
+	
+	
+	for i in range(100):
+		Drops.push_back(DropScene.instance())
+		Drops[i].set_global_position(PlayerStart)
+		add_child(Drops[i])
+		pass
 
 func _despawnPlayers():
 	remove_child(PlayerInst)
@@ -225,7 +233,8 @@ func _process(delta):
 		
 		if (Input.is_mouse_button_pressed(BUTTON_LEFT)):
 			var inputVector = Vector2(0,0);
-			var v = get_viewport().get_mouse_position()-PlayerInst.get_position()
+			#tu ponizej bardzo brzydki trik ze skalą
+			var v = get_viewport().get_mouse_position() * get_parent().GameScale-PlayerInst.get_position()
 			if (v.length_squared() > 1000): 	 
 				var output = (v.length_squared())/ (MaxSpeedDistance);
 				if( output > 1 ):
@@ -249,6 +258,12 @@ func _process(delta):
 		if Input.is_key_pressed(68): #d
 			PlayerInst._addInput(Vector2(1,0)*delta)
 			AntiPlayerInst._addInput(Vector2(1,0)*delta)
+		
+		for i in Drops.size():
+			var dist = PlayerInst.get_position() - Drops[i].get_position()
+			var vel = Drops[i].get_linear_velocity()
+			Drops[i].add_force(Vector2(0,0), - vel*vel.length()/100)
+			Drops[i].add_force(Vector2(0,0),rand_range(0.1,1.2) * 10000 * min(5, dist.length()/200) * dist.normalized());
 #	else:
 #		print("sterowanie dla mapy?")
 	pass
