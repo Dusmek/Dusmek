@@ -123,11 +123,11 @@ func _spawnPlayers():
 	AntiPlayerInst.set_global_position(MirrorStart)
 	
 	
-	for i in range(100):
-		Drops.push_back(DropScene.instance())
-		Drops[i].set_global_position(PlayerStart)
-		add_child(Drops[i])
-		pass
+	#for i in range(100):
+	#	Drops.push_back(DropScene.instance())
+	#	Drops[i].set_global_position(PlayerStart)
+	#	add_child(Drops[i])
+	#	pass
 
 func _despawnPlayers():
 	remove_child(PlayerInst)
@@ -259,11 +259,11 @@ func _process(delta):
 			PlayerInst._addInput(Vector2(1,0)*delta)
 			AntiPlayerInst._addInput(Vector2(1,0)*delta)
 		
-		for i in Drops.size():
-			var dist = PlayerInst.get_position() - Drops[i].get_position()
-			var vel = Drops[i].get_linear_velocity()
-			Drops[i].add_force(Vector2(0,0), - vel*vel.length()/100)
-			Drops[i].add_force(Vector2(0,0),rand_range(0.1,1.2) * 10000 * min(5, dist.length()/200) * dist.normalized());
+		#for i in Drops.size():
+		#	var dist = PlayerInst.get_position() - Drops[i].get_position()
+		#	var vel = Drops[i].get_linear_velocity()
+		#	Drops[i].add_force(Vector2(0,0), - vel*vel.length()/100)
+		#	Drops[i].add_force(Vector2(0,0),rand_range(0.1,1.2) * 10000 * min(5, dist.length()/200) * dist.normalized());
 #	else:
 #		print("sterowanie dla mapy?")
 	pass

@@ -1,7 +1,8 @@
 extends KinematicBody2D
-
+#NOTE
+#Sprite Offset was -40, 0
 # class member variables go here, for example:
-	   
+
 #movement
 var speedMax = 40000;
 var speed = 0;
@@ -23,19 +24,53 @@ var Reverted = false;
 
 var LastPos
 
+
+var RaycastContact = [0,0,0,0];
+
 func _ready():
 	#for i in 20:
 		#var part = BodyPartPath.instance() 
 		#add_child(part) 
-
+	var rayLength = Vector2(0,36);
+	find_node("RayCastUp").cast_to = (rayLength);
+	find_node("RayCastRight").cast_to = (rayLength);
+	find_node("RayCastDown").cast_to = (rayLength);
+	find_node("RayCastLeft").cast_to = (rayLength);
 	LastPos = get_position()
 	pass
 
 func _process(delta): 
-	  
+	     
+	var FirstPosition;
+	if(MirrorCharacter):
+		FirstPosition = get_parent().AntiPlayerInst.get_position();
+	else:
+		FirstPosition = get_parent().PlayerInst.get_position();
+		
+		
 	_Movement(delta);
-	
 	_Overlaping(); 
+	
+	if find_node("RayCastUp").is_colliding(): 
+		RaycastContact[0] = 1;
+	else:
+		RaycastContact[0] = 0;	
+		
+	if find_node("RayCastRight").is_colliding(): 
+		RaycastContact[1] = 10;
+	else:
+		RaycastContact[1] = 0;	
+		
+	if find_node("RayCastDown").is_colliding(): 
+		RaycastContact[2] = 100;
+	else:
+		RaycastContact[2] = 0;	
+		
+	if find_node("RayCastLeft").is_colliding(): 
+		RaycastContact[3] = 1000;
+	else:
+		RaycastContact[3] = 0;	
+		 
 	
 	if (LastPos!=get_position()):
 		var angle = get_position().angle_to_point(LastPos)
@@ -55,17 +90,104 @@ func _process(delta):
 		sp.set_rotation(l*angle+(1-l)*rot);
 		LastPos = get_position();
 	
+	var SecondPosition;
+	if(MirrorCharacter):
+		SecondPosition = get_parent().AntiPlayerInst.get_position();
+	else:
+		SecondPosition = get_parent().PlayerInst.get_position();
 		
+	var MovedDistance = (SecondPosition - FirstPosition).length();
+	
 	if(!get_parent().Dead):
 		if( velocity.length_squared() <= 0 ):
 			if( MirrorCharacter ):
 				if( find_node("Sprite").animation != "IdleMirror"):
 					find_node("Sprite").animation = "IdleMirror";
-			else:
+			else: 
 				if( find_node("Sprite").animation != "IdleNormal"):
-					find_node("Sprite").animation = "IdleNormal";
+					find_node("Sprite").animation = "IdleNormal"; 
+		if( MovedDistance <= 0.05 ): 
+			var ContactType = 0;
+			for i in range(0, RaycastContact.size()):
+				ContactType += RaycastContact[i]; 
+			match ContactType:
+				11:
+					find_node("Sprite").set_rotation(PI/2);
+					_setAnimationIdleCorner();
+				110:
+					find_node("Sprite").set_rotation(PI);
+					_setAnimationIdleCorner();
+				1100:
+					find_node("Sprite").set_rotation(PI*3/2);
+					_setAnimationIdleCorner();
+				1001:
+					find_node("Sprite").set_rotation(0);
+					_setAnimationIdleCorner();
+				1:
+					find_node("Sprite").set_rotation(PI);
+					_setAnimationIdleWall();
+				10:
+					find_node("Sprite").set_rotation(PI*3/2);
+					_setAnimationIdleWall();
+				100:
+					find_node("Sprite").set_rotation(0);
+					_setAnimationIdleWall();
+				1000:
+					find_node("Sprite").set_rotation(PI/2);
+					_setAnimationIdleWall();
+		if(velocity.length_squared() > 0):
+			var ContactType = 0;
+			for i in range(0, RaycastContact.size()):
+				ContactType += RaycastContact[i]; 
+			match ContactType:  
+				1:
+					find_node("Sprite").set_rotation(PI);
+					_setAnimationIdleWall();
+				10:
+					find_node("Sprite").set_rotation(PI*3/2);
+					_setAnimationIdleWall();
+				100:
+					find_node("Sprite").set_rotation(0);
+					_setAnimationIdleWall();
+				1000:
+					find_node("Sprite").set_rotation(PI/2);
+					_setAnimationIdleWall(); 
 	pass 
 
+func _setAnimationIdleWall():
+	if( velocity.length_squared() > 0 ):
+		if( MirrorCharacter ):
+			if( find_node("Sprite").animation != "IdleWallMirror"):
+				find_node("Sprite").animation = "IdleWallMirror"; 
+		else: 
+			if( find_node("Sprite").animation != "IdleWall"):
+				find_node("Sprite").animation = "IdleWall"; 
+	else:
+		if( MirrorCharacter ):
+			if( find_node("Sprite").animation != "MoveWallMirror"):
+				find_node("Sprite").animation = "MoveWallMirror"; 
+		else: 
+			if( find_node("Sprite").animation != "MoveWall"):
+				find_node("Sprite").animation = "MoveWall"; 
+	pass
+	
+func _setAnimationMoveWall():
+	if( MirrorCharacter ):
+		if( find_node("Sprite").animation != "MoveWallMirror"):
+			find_node("Sprite").animation = "MoveWallMirror"; 
+	else: 
+		if( find_node("Sprite").animation != "MoveWall"):
+			find_node("Sprite").animation = "MoveWall"; 
+	pass
+func _setAnimationIdleCorner():
+	if( MirrorCharacter ):
+		if( find_node("Sprite").animation != "IdleCornerMirror"):
+			find_node("Sprite").animation = "IdleCornerMirror"; 
+	else: 
+		if( find_node("Sprite").animation != "IdleCorner"):
+			find_node("Sprite").animation = "IdleCorner"; 
+	pass
+	
 func _addInput(Direction, Mirror = false):
 	
 	if( !get_parent().Dead): 
